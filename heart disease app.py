@@ -30,12 +30,14 @@ features = np.array([[age, sex_input, cp, trestbps, chol, fbs, thalach, exang, o
 
 # --- Prediction ---
 if st.button("Predict"):
-    prediction = model.predict(features)
-    if prediction[0] == 1:
-        st.error("🚨 High risk of heart disease!")
-    else:
-        st.success("✅ No significant risk of heart disease")
-
+    try:
+        prediction = model.predict(features)
+        if prediction[0] == 1:
+            st.error("🚨 High risk of heart disease!")
+        else:
+            st.success("✅ No significant risk of heart disease")
+    except Exception as e:
+        st.error(f"Error: {e}")
 
 
 
