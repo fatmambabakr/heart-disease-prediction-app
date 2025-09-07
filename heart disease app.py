@@ -53,12 +53,11 @@ features = np.array(
 
 # --- Prediction ---
 if st.button("Predict"):
-    try:
-        prediction = model.predict(features)
-        if prediction[0] == 1:
-            st.error("🚨 High risk of heart disease!")
-        else:
-            st.success("✅ No significant risk of heart disease")
-    except Exception as e:
-        st.error(f"Error: {e}")
-
+    pred = model.predict(data)  
+    
+    binary_pred = 0 if pred[0] == 0 else 1
+    
+    if binary_pred == 0:
+        st.success("The user is NOT likely to have heart disease ❤️")
+    else:
+        st.error("The user is LIKELY to have heart disease 🚨")
