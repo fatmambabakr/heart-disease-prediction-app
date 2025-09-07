@@ -54,8 +54,13 @@ features = np.array(
 # --- Prediction ---
 if st.button("Predict"):
     pred = model.predict(features)
-    prediction = pred[0]   
+    prediction = pred[0]
 
+    # ✅ اطبعي احتمالات كل class
+    proba = model.predict_proba(features)
+    st.write("Class probabilities:", proba)
+
+    # ✅ الرسالة للمستخدم
     if prediction == 0:
         st.success("No Heart Disease ❤️")
     elif prediction == 1:
@@ -68,5 +73,7 @@ if st.button("Predict"):
         st.error("Very Severe Heart Disease 🚨🔥")
     else:
         st.write("Unknown Class")
+
+
 
 
