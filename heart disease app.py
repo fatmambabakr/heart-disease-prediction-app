@@ -53,12 +53,20 @@ features = np.array(
 
 # --- Prediction ---
 if st.button("Predict"):
-    pred = model.predict(features)  
-    
-    binary_pred = 0 if pred[0] == 0 else 1
-    
-    if binary_pred == 0:
-        st.success("The user is NOT likely to have heart disease ❤️")
+    pred = model.predict(features)
+    prediction = pred[0]   
+
+    if prediction == 0:
+        st.success("No Heart Disease ❤️")
+    elif prediction == 1:
+        st.info("Mild Heart Disease ⚠️")
+    elif prediction == 2:
+        st.warning("Moderate Heart Disease ⚠️")
+    elif prediction == 3:
+        st.error("Severe Heart Disease 🚨")
+    elif prediction == 4:
+        st.error("Very Severe Heart Disease 🚨🔥")
     else:
-        st.error("The user is LIKELY to have heart disease 🚨")
+        st.write("Unknown Class")
+
 
