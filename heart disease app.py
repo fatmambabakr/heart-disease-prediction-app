@@ -53,7 +53,7 @@ features = np.array(
 
 # --- Prediction ---
 if st.button("Predict"):
-    pred = model.predict(data)  
+    pred = model.predict(features)  
     
     binary_pred = 0 if pred[0] == 0 else 1
     
@@ -61,3 +61,4 @@ if st.button("Predict"):
         st.success("The user is NOT likely to have heart disease ❤️")
     else:
         st.error("The user is LIKELY to have heart disease 🚨")
+
