@@ -41,7 +41,7 @@ features = pd.DataFrame([[
 # ---------- Prediction ----------
 if st.button("Predict"):
     pred = model.predict(features)[0]
-    proba = model.predict_proba(features)[0]
+   
 
     st.write("Class probabilities:", proba)
 
@@ -57,3 +57,4 @@ if st.button("Predict"):
         st.error("Very Severe Heart Disease 🚨🔥")
     else:
         st.write("Unknown Class")
+
