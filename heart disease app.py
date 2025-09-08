@@ -4,7 +4,7 @@ import numpy as np
 
 # ---------- Load the trained pipeline ----------
 # استخدمي نفس الاسم اللي حفظتيه
-model = joblib.load("heart_disease_model.pkl")  # أو 'heart_disease_model_v2.pkl'
+model = joblib.load("heart_disease_modelv2.pkl")  # أو 'heart_disease_model_v2.pkl'
 
 # ---------- Streamlit Title ----------
 st.title("💓 Heart Disease Prediction App")
@@ -52,5 +52,6 @@ if st.button("Predict"):
         st.error("Very Severe Heart Disease 🚨🔥")
     else:
         st.write("Unknown Class")
+
 
 
