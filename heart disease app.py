@@ -1,10 +1,9 @@
 import streamlit as st
 import joblib
-import numpy as np
+import pandas as pd
 
 # ---------- Load the trained pipeline ----------
-# استخدمي نفس الاسم اللي حفظتيه
-model = joblib.load("heart_disease_modelv2 (1).pkl")  # أو 'heart_disease_model_v2.pkl'
+model = joblib.load("heart_disease_modelv2 (1).pkl")  
 
 # ---------- Streamlit Title ----------
 st.title("💓 Heart Disease Prediction App")
@@ -24,36 +23,37 @@ exang = st.selectbox("Exercise Induced Angina", [0, 1])
 oldpeak = st.number_input("ST depression induced by exercise", 0.0, 10.0, 1.0)
 slope = st.selectbox("Slope of the peak exercise ST segment", [0, 1, 2])
 ca = st.selectbox("Number of major vessels colored by fluoroscopy", [0, 1, 2, 3])
-thal = st.selectbox("Thalassemia", [1, 2, 3])
+thal = st.selectbox("Thalassemia", [3, 6, 7])  # خليتيه زي الموديل
 
 # ---------- Prepare features in the same order as trained pipeline ----------
-features = np.array([[age, sex_input, cp, trestbps, chol, fbs,
-                      restecg, thalach, exang, oldpeak, slope, ca, thal]])
+features = pd.DataFrame([[
+    age, trestbps, chol, thalach, oldpeak,
+    1 if ca == 1 else 0,
+    1 if ca == 2 else 0,
+    1 if ca == 3 else 0,
+    1 if thal == 6 else 0,
+    1 if thal == 7 else 0
+]], columns=[
+    'age', 'trestbps', 'chol', 'thalach', 'oldpeak',
+    'ca_1.0', 'ca_2.0', 'ca_3.0', 'thal_6.0', 'thal_7.0'
+])
 
 # ---------- Prediction ----------
 if st.button("Predict"):
-    pred = model.predict(features)
-    prediction = pred[0]
+    pred = model.predict(features)[0]
+    proba = model.predict_proba(features)[0]
 
-    # Probabilities لكل class
-    proba = model.predict_proba(features)
     st.write("Class probabilities:", proba)
 
-    # الرسالة للمستخدم
-    if prediction == 0:
+    if pred == 0:
         st.success("No Heart Disease ❤️")
-    elif prediction == 1:
+    elif pred == 1:
         st.info("Mild Heart Disease ⚠️")
-    elif prediction == 2:
+    elif pred == 2:
         st.warning("Moderate Heart Disease ⚠️")
-    elif prediction == 3:
+    elif pred == 3:
         st.error("Severe Heart Disease 🚨")
-    elif prediction == 4:
+    elif pred == 4:
         st.error("Very Severe Heart Disease 🚨🔥")
     else:
         st.write("Unknown Class")
-
-
-
-
-
