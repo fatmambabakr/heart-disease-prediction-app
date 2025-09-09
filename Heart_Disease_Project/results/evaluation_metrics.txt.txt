@@ -1,0 +1,41 @@
+Model Evaluation Results
+========================
+
+1. Logistic Regression
+
+Accuracy        : 0.566667
+Precision Macro : 0.275380
+Recall Macro    : 0.263016
+F1 Macro        : 0.266153
+F1 Micro        : 0.566667
+F1 Weighted     : 0.557248
+AUC             : 0.780863
+
+2. Random Forest
+
+Accuracy        : 0.566667
+Precision Macro : 0.242381
+Recall Macro    : 0.246349
+F1 Macro        : 0.240466
+F1 Micro        : 0.566667
+F1 Weighted     : 0.530186
+AUC             : 0.720683
+
+3. Decision Tree
+
+Accuracy        : 0.450000
+Precision Macro : 0.254510
+Recall Macro    : 0.241905
+F1 Macro        : 0.247912
+F1 Micro        : 0.450000
+F1 Weighted     : 0.462711
+AUC             : 0.534985
+
+4. Support Vector Machine (SVM)
+Accuracy        : 0.600000
+Precision Macro : 0.313488
+Recall Macro    : 0.274127
+F1 Macro        : 0.272586
+F1 Micro        : 0.600000
+F1 Weighted     : 0.559648
+AUC             : 0.769110
