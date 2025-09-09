@@ -1,3 +1,5 @@
+💓 Heart Disease Prediction App
+
 This project is a machine learning application that predicts the risk of heart disease using patient medical data.
 It also includes a simple Streamlit web app for user interaction.
 
@@ -22,8 +24,6 @@ notebooks/ → Jupyter Notebooks (data preprocessing, model training, etc.)
 data/ → Dataset used for training (heart_disease.csv)
 
 results/ → Evaluation metrics and results
-
-deployment/ → Deployment instructions (e.g., ngrok setup)
 
 requirements.txt → List of dependencies
 
