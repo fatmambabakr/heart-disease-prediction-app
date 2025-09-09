@@ -19,9 +19,9 @@ ui/app.py → Streamlit app code
 
 models/final_model.pkl → Trained machine learning model
 
-notebooks/ → Jupyter Notebooks (data preprocessing, model training, etc.)
+notebooks/ → google colab Notebooks (data preprocessing, model training, etc.)
 
-data/ → Dataset used for training (heart_disease.csv)
+data/ → Dataset used for training (processed.cleveland[1].data)
 
 results/ → Evaluation metrics and results
 
@@ -48,7 +48,7 @@ pip install -r requirements.txt
 
 Run the app:
 
-streamlit run ui/app.py
+streamlit run ui/heart disease app.py
 
 📊 Model
 
