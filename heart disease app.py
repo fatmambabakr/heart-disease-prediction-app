@@ -43,8 +43,6 @@ if st.button("Predict"):
     pred = model.predict(features)[0]
    
 
-    st.write("Class probabilities:", proba)
-
     if pred == 0:
         st.success("No Heart Disease ❤️")
     elif pred == 1:
@@ -57,4 +55,5 @@ if st.button("Predict"):
         st.error("Very Severe Heart Disease 🚨🔥")
     else:
         st.write("Unknown Class")
+
 
